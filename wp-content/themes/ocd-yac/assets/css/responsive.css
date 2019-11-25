@@ -1,0 +1,75 @@
+/* 
+-----------------------------------------------
+    1280px - Smaller Desktop
+-----------------------------------------------
+*/
+
+
+/* Shared Down */
+
+@media only screen and (max-width: 1280px) {
+    .container {
+        max-width: 1024px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* Specific for View */
+
+@media only screen and (max-width: 1280px) and (min-width: 1025px) {}
+
+
+/* 
+-----------------------------------------------
+    1024px - iPad Landscape
+-----------------------------------------------
+*/
+
+
+/* Shared Down */
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+
+/* Specfic for View */
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {}
+
+
+/* 
+-----------------------------------------------
+    768px - iPad Portrait
+-----------------------------------------------
+*/
+
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+
+/* Specfic for View */
+
+@media only screen and (max-width: 768px) and (min-width: 768px) {}
+
+
+/* 
+-----------------------------------------------
+    767px - Mobile
+-----------------------------------------------
+*/
+
+@media only screen and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
