@@ -18,6 +18,17 @@ get_header();
     <!-- Desktop -->
     
 
+    <!-- Blogs -->
+
+
+    <!-- Events Timeline -->
+
+
+    <!-- Who Are We? -->
+
+
+    <!-- Sponsors -->
+
 
     <?php 
         }
