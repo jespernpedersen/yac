@@ -41,6 +41,52 @@
             // Is Desktop
     ?>
     <!-- Desktop Header -->
+
+
+    <!-- Banner: Submit Your Experience --> 
+    <div class="banner">
+        <div class="container">
+            <a href="#" title="">Submit your Experience in Køge</a>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <!-- Logo -->
+                <div class="logo-wrapper">
+                    <img src="/yac/wp-content/uploads/2019/11/logo.png" title="Logo" alt="Logo" />
+                </div>
+
+                <!-- Menu Navigation -->
+                <nav id="site-navigation" class="main-navigation" role="navigation">	
+                    <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'menu-1',
+                            'menu_id'        => 'primary-menu',
+                        ) );
+                        ?>
+                </nav>
+
+                <!-- Social Media -->
+                <div class="social-media-search">
+                    <ul id="social-media">
+                        <li>SM 1</li>
+                        <li>SM 2</li>
+                        <li>SM 3</li>
+                        <li>SM 4</li>
+                    </ul>
+                    <div id="search-wrapper">
+                        Search
+                    </div>
+                    <!-- Search -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+
     <?php 
     }
     else {
