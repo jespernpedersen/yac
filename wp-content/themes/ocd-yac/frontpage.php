@@ -20,7 +20,7 @@ get_header();
 
     <!-- Blogs -->
     <section class="blogs-section">
-        <div class="container">
+        <div class="content-container">
            <h2>Blog</h2>
            <div class="blog-container">
                 <div class="all-blog-items">
@@ -109,11 +109,58 @@ get_header();
 
 
     <!-- Events Timeline -->
+    <section class="event-section">
+        <div class="content-container">
+            <!-- <h2>Events</h2> -->
+            <!-- Year -->
+            <div class="timeline-year">2020</div>
+            <div class="timeline">
+                <div class="timeline-line">
+                    <a class="see-all-events" href="#">See all Events</a>
+                </div>
+                <?php 
+                    $posts = get_posts( array(
+                        'post_type'      => 'event',
+                        'order'          => 'DESC',
+                        'posts_per_page' => '5'
+                    ));
+                    if( $posts ) {
+                        foreach( $posts as $post ) {
+                ?>                
+                    <div class="timeline-item">
+                    <div class="event-date-location">
+                        <div class="date"><?php echo get_field("event_date"); ?></div>
+                        <div><?php echo get_field("event_location"); ?></div>
+                    </div>
+                    <div class="event-info">
+                        <h4><?php echo get_the_title(); ?></h4>
+                        <p> <?php echo get_the_excerpt($post->ID); ?></p>
+                    </div>
+                    <div class="event-category">
+                        <?php echo get_the_category()[0]->name; ?>
+                    </div>
+                    <div class="event-image">
+                        <hr>
+                        <img src="<?php echo get_the_post_thumbnail_url($post->ID);  ?>" alt="Image" title="Image" />
+                    </div>
+                    <div class="event-cta">
+                        <a class="btn" title="">Attend</a>
+                    </div>
 
+                </div><!-- end .timeline-item -->
+                
+                <?php
+                    }
+                    wp_reset_query();
+                    }
+                ?>
+            </div>
+        </div>
+    </section>
 
     <!-- Who Are We? -->
     <section class="about-section">
-        <div class="container">
+        <div class="content-container">
             <h2>Who are we?</h2>
             <div class="grid grid-2">
                 <div class="column">

@@ -42,6 +42,17 @@
     height: 100%;
 }
 
+.content-container {
+    max-width: 995px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    height: 100%;
+}
+
 .grid {
     display: grid;
 }
@@ -306,7 +317,6 @@ nav#site-navigation ul#social-media {
 */
 
 .blog-container {
-    max-width: 70%;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -658,4 +668,119 @@ section.about-section p {
 
 section.about-section iframe {
     min-height: 320px;
+}
+
+
+/* 
+-----------------------------------------------
+    SECTION: Events Timeline
+-----------------------------------------------
+*/
+
+section.event-section {
+    padding-bottom: 100px;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 150px;
+}
+
+.timeline-item a.btn {
+    color: #FFF;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.timeline-item .event-image {
+    width: 25%;
+    padding-top: 16px;
+}
+
+.timeline-item .event-image img {
+    max-width: 100%;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.timeline-item .event-info h4 {
+    font-size: 28px;
+}
+
+.timeline-item .event-date-location {
+    width: 10%;
+    text-align: right;
+    position: relative;
+}
+
+.timeline-item .event-date-location:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    right: -38px;
+    top: 10px;
+}
+
+.timeline-item .event-category {
+    font-style: italic;
+    padding-top: 8px;
+}
+
+.timeline-item .event-image hr {
+    border: 0;
+    border-bottom: 1px solid #000;
+}
+
+.timeline-line {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: black;
+    left: 14%;
+    top: 0;
+}
+
+a.see-all-events {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    left: 50%;
+    background-color: var(--primary-color);
+    color: #FFF;
+    padding: 20px;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+.event-info p {
+    max-width: 100%;
+}
+
+.event-info {
+    width: 25%;
+}
+
+.timeline-year {
+    font-style: italic;
+    font-size: 30px;
+    color: var(--gray-background);
+    font-weight: bold;
+    padding-top: 50px;
+    width: 10%;
+    text-align: right;
+}
+
+.date {
+    font-size: 24px;
+}
+
+.event-cta {
+    padding-top: 3px;
 }

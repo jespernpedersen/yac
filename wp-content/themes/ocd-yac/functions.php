@@ -74,3 +74,30 @@ function jnp_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'jnp_widgets_init' );
+
+
+function jnp_create_events_custom_post() {
+	register_post_type('event', 
+		array(
+		'labels' => array(
+			'name' => __('Events', 'events'),
+		),
+		'menu_icon'    => 'dashicons-schedule',
+		'public'       => true,
+		'hierarchical' => true,
+		'supports'     => array(
+			'title',
+			'editor',
+			'excerpt',
+			'custom-fields',
+			'thumbnail',
+		), 
+		'taxonomies'   => array(
+				'post_tag',
+				'category'
+		) 
+	));
+}
+
+
+add_action('init', 'jnp_create_events_custom_post');  
