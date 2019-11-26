@@ -43,12 +43,6 @@
     <!-- Desktop Header -->
 
 
-    <!-- Banner: Submit Your Experience --> 
-    <div class="banner">
-        <div class="container">
-            <a href="#" title="">Submit your Experience in Køge</a>
-        </div>
-    </div>
 
 
     <header>
@@ -56,7 +50,17 @@
             <div class="header-inner">
                 <!-- Logo -->
                 <div class="logo-wrapper">
-                    <img src="/yac/wp-content/uploads/2019/11/logo.png" title="Logo" alt="Logo" />
+                    <a href="/yac/">
+                        <img src="/yac/wp-content/uploads/2019/11/logo.png" title="Logo" alt="Logo" />
+                    </a>
+                </div>
+
+
+                <!-- Banner: Submit Your Experience --> 
+                <div class="banner">
+                    <div class="container">
+                        <a href="#" title="">Submit your Experience in Køge</a>
+                    </div>
                 </div>
 
                 <!-- Menu Navigation -->
@@ -67,21 +71,21 @@
                             'menu_id'        => 'primary-menu',
                         ) );
                         ?>
-                </nav>
-
                 <!-- Social Media -->
                 <div class="social-media-search">
-                    <ul id="social-media">
-                        <li>SM 1</li>
-                        <li>SM 2</li>
-                        <li>SM 3</li>
-                        <li>SM 4</li>
-                    </ul>
+                    <?php 
+					if ( is_active_sidebar( 'social-media-header' ) ) : ?>
+						<div class="widget-area widget-area" role="complementary">
+						<?php dynamic_sidebar( 'social-media-header' ); ?>
+						</div>
+						
+					<?php endif; ?>
                     <div id="search-wrapper">
-                        Search
+                        <?php echo get_search_form() ?>
                     </div>
                     <!-- Search -->
                 </div>
+                </nav>
             </div>
         </div>
     </header>
