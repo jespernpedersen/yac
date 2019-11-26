@@ -115,9 +115,6 @@ get_header();
             <!-- Year -->
             <div class="timeline-year">2020</div>
             <div class="timeline">
-                <div class="timeline-line">
-                    <a class="see-all-events" href="#">See all Events</a>
-                </div>
                 <?php 
                     $posts = get_posts( array(
                         'post_type'      => 'event',
@@ -140,7 +137,6 @@ get_header();
                         <?php echo get_the_category()[0]->name; ?>
                     </div>
                     <div class="event-image">
-                        <hr>
                         <img src="<?php echo get_the_post_thumbnail_url($post->ID);  ?>" alt="Image" title="Image" />
                     </div>
                     <div class="event-cta">
@@ -155,6 +151,10 @@ get_header();
                     }
                 ?>
             </div>
+            
+            <div class="timeline-line">
+                    <a class="see-all-events" href="#">See all Events</a>
+                </div>
         </div>
     </section>
 

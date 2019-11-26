@@ -697,7 +697,11 @@ section.event-section {
 
 .timeline-item .event-image {
     width: 25%;
-    padding-top: 16px;
+    margin-top: 16px;
+    overflow: hidden;
+    position: relative;
+    min-height: 130px;
+    border-top: 1px solid #000;
 }
 
 .timeline-item .event-image img {
@@ -725,7 +729,7 @@ section.event-section {
     display: inline-block;
     position: absolute;
     right: -38px;
-    top: 10px;
+    top: 15px;
 }
 
 .timeline-item .event-category {
@@ -733,9 +737,31 @@ section.event-section {
     padding-top: 8px;
 }
 
+.timeline .timeline-item:not(:first-child) .event-info p {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.timeline .timeline-item:not(:first-child):hover .event-info p {
+    max-height: 100%;
+}
+
 .timeline-item .event-image hr {
     border: 0;
     border-bottom: 1px solid #000;
+}
+
+.timeline .timeline-item:not(:first-child) .event-image img {
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    max-width: 248px;
+    top: -150%;
+}
+
+.timeline .timeline-item:not(:first-child):hover .event-image img {
+    top: 0px;
 }
 
 .timeline-line {
