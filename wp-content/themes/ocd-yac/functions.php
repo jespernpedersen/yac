@@ -71,6 +71,14 @@ function jnp_widgets_init() {
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="title">',
         'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+        'name'          => 'Single Post Sidebar',
+        'id'            => 'single-post-sidebar',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="title">',
+        'after_title'   => '</h2>',
     ) );
 }
 add_action( 'widgets_init', 'jnp_widgets_init' );
@@ -101,3 +109,38 @@ function jnp_create_events_custom_post() {
 
 
 add_action('init', 'jnp_create_events_custom_post');  
+
+
+
+
+// Modify comments header text in comments
+add_filter( 'genesis_title_comments', 'child_title_comments');
+function child_title_comments() {
+    return __(comments_number( '<h3>No Responses</h3>', '<h3>1 Response</h3>', '<h3>% Responses...</h3>' ), 'genesis');
+}
+ 
+// Unset URL from comment form
+function crunchify_move_comment_form_below( $fields ) { 
+    $comment_field = $fields['comment']; 
+    unset( $fields['comment'] ); 
+    $fields['comment'] = $comment_field; 
+    return $fields; 
+} 
+add_filter( 'comment_form_fields', 'crunchify_move_comment_form_below' ); 
+ 
+// Add placeholder for Name and Email
+function modify_comment_form_fields($fields){
+    $fields['author'] = '<p class="comment-form-author">' . '<input id="author" placeholder="Name" name="author" type="text" value="' .
+                esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />'.
+                ( $req ? '<span class="required">*</span>' : '' )  .
+                '</p>';
+    $fields['email'] = '<p class="comment-form-email">' . '<input id="email" placeholder="Email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+                '" size="30"' . $aria_req . ' />'  .
+                ( $req ? '<span class="required">*</span>' : '' ) 
+                 .
+				'</p>';
+	$fields['url'] = '';
+    
+    return $fields;
+}
+add_filter('comment_form_default_fields','modify_comment_form_fields');

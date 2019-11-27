@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <!-- Content -->
-<main>
+<main class="frontpage">
 
 <?php 
     if(!wp_is_mobile()) {
@@ -45,9 +45,16 @@ get_header();
                                             <a href="<?php echo get_permalink($post->ID); ?>" class="overlay-link" title="">
                                                 <span>
                                                     <div class="overlay-content">
-                                                        <div class="blog-categories">
-                                                            <span>Categories</span>
+                                                        <?php if(get_the_category($post->ID)[0]->name != '') { ?>
+                                                        <div class="post-categories">
+                                                            <?php 
+                                                            $categories = get_the_category();
+                                                            foreach( $categories as $category ) {
+                                                               echo  '<span>' . $category->name . '</span>';
+                                                           }
+                                                            ?>
                                                         </div>
+                                                        <?php } ?>
                                                         <div class="blog-title-wrapper">
                                                             <h4><?php echo get_the_title(); ?></h4>
                                                             <hr>
@@ -111,7 +118,7 @@ get_header();
     <!-- Events Timeline -->
     <section class="event-section">
         <div class="content-container">
-            <!-- <h2>Events</h2> -->
+            <h2>Events</h2>
             <!-- Year -->
             <div class="timeline-year">2020</div>
             <div class="timeline">

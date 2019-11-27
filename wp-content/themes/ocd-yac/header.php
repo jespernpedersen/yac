@@ -45,7 +45,7 @@
 
 
 
-    <header>
+    <header class="main-header">
         <div class="container">
             <div class="header-inner">
                 <!-- Logo -->
